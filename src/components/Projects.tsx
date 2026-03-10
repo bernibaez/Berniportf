@@ -1,17 +1,20 @@
-import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import React, { useState } from 'react';
+import { ExternalLink, Github, X, Monitor, Smartphone } from 'lucide-react';
 
 interface ProjectsProps {
   darkMode: boolean;
 }
 
 const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
+  const [selectedProject, setSelectedProject] = useState<any | null>(null);
+
   const projects = [
     {
       id: 1,
       title: 'HealthTrack 🏥',
       description: 'Aplicación de seguimiento médico con gestión de pacientes, citas y historiales clínicos.',
-      image: 'https://images.pexels.com/photos/5428830/pexels-photo-5428830.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/img/Healthtrack.png',
+      demoType: 'web',
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Firebase'],
       liveUrl: 'https://healttrack.netlify.app/',
       githubUrl: '#',
@@ -21,7 +24,8 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       id: 2,
       title: 'Jardín Verde 🌿',
       description: 'Diseño de sitio web para jardinería y paisajismo creado completamente en Figma con prototipos interactivos.',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/img/jardinverde.png',
+      demoType: 'design',
       technologies: ['Figma', 'UI/UX Design', 'Prototyping', 'Design System'],
       liveUrl: 'https://fade-blotch-73535759.figma.site/',
       githubUrl: '#',
@@ -32,6 +36,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       title: 'App Móvil Expo 📱',
       description: 'Aplicación móvil desarrollada con React Native y Expo, disponible para preview en Expo Dev.',
       image: 'https://images.pexels.com/photos/5380640/pexels-photo-5380640.jpeg?auto=compress&cs=tinysrgb&w=800',
+      demoType: 'mobile',
       technologies: ['React Native', 'Expo', 'JavaScript', 'Mobile Development'],
       liveUrl: 'https://expo.dev/preview/update?message=Primera+publicaci%C3%B3n&updateRuntimeVersion=1.0.0&createdAt=2026-01-22T00%3A42%3A25.458Z&slug=exp&projectId=3bc9e73a-c06d-4903-a316-06ab32f385c8&group=c8d15f65-205b-4278-9625-980ca3d90de0',
       githubUrl: '#',
@@ -42,6 +47,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       title: 'Sistema de Restaurantes 🍽️',
       description: 'Sistema completo de gestión para restaurantes con pedidos, inventario y control de mesas.',
       image: 'https://images.pexels.com/photos/941864/pexels-photo-941864.jpeg?auto=compress&cs=tinysrgb&w=800',
+      demoType: 'web',
       technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
       liveUrl: '#',
       githubUrl: 'https://github.com/bernibaez/orderly-eats.git',
@@ -56,7 +62,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
     <div className={`group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
       darkMode ? 'bg-gray-800' : 'bg-white'
     } ${featured ? 'lg:col-span-1' : ''}`}>
-      {/* Imagen */}
+      {/* Imagen con botón de preview */}
       <div className="relative h-48 overflow-hidden">
         <img
           src={project.image}
@@ -65,16 +71,34 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
-        {/* Badges de tecnologías */}
+        {/* Botón de vista previa */}
+        <button
+          onClick={() => setSelectedProject(project)}
+          className="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-sm text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/30 hover:scale-110"
+          title="Ver vista previa"
+        >
+          <Monitor size={16} />
+        </button>
+        
+        {/* Badges de tecnologías y tipo de demo */}
         <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-          {project.technologies.slice(0, 2).map((tech: string) => (
-            <span
-              key={tech}
-              className="px-2 py-1 text-xs font-medium bg-white/20 backdrop-blur-sm text-white rounded-full"
-            >
-              {tech}
+          {project.demoType === 'web' && (
+            <span className="px-2 py-1 text-xs font-medium bg-blue-500/80 backdrop-blur-sm text-white rounded-full flex items-center gap-1">
+              <Monitor size={12} />
+              Web
             </span>
-          ))}
+          )}
+          {project.demoType === 'mobile' && (
+            <span className="px-2 py-1 text-xs font-medium bg-green-500/80 backdrop-blur-sm text-white rounded-full flex items-center gap-1">
+              <Smartphone size={12} />
+              Móvil
+            </span>
+          )}
+          {project.demoType === 'design' && (
+            <span className="px-2 py-1 text-xs font-medium bg-purple-500/80 backdrop-blur-sm text-white rounded-full">
+              Design
+            </span>
+          )}
         </div>
       </div>
 
@@ -132,6 +156,133 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
     </div>
   );
 
+  // Modal para vista previa ampliada
+  const DemoPreview: React.FC<{ project: any }> = ({ project }) => {
+    if (!project) return null;
+
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+           onClick={() => setSelectedProject(null)}>
+        <div className={`relative max-w-6xl w-full max-h-[90vh] overflow-auto rounded-2xl shadow-2xl ${
+          darkMode ? 'bg-gray-900' : 'bg-white'
+        }`}
+             onClick={(e) => e.stopPropagation()}>
+          
+          {/* Header */}
+          <div className={`sticky top-0 z-10 flex items-center justify-between p-6 border-b ${
+            darkMode ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-200'
+          }`}>
+            <div>
+              <h3 className="text-2xl font-bold">{project.title}</h3>
+              <p className={`text-sm mt-1 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                {project.description}
+              </p>
+            </div>
+            <button
+              onClick={() => setSelectedProject(null)}
+              className={`p-2 rounded-lg transition-colors ${
+                darkMode ? 'hover:bg-gray-800 text-gray-400' : 'hover:bg-gray-100 text-gray-600'
+              }`}
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+          {/* Contenido del preview */}
+          <div className="p-6">
+            {/* Tipo de demo y preview principal */}
+            <div className="mb-6">
+              <div className="flex items-center gap-4 mb-4">
+                {project.demoType === 'web' && (
+                  <div className="flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-full">
+                    <Monitor size={16} />
+                    <span className="font-medium">Aplicación Web</span>
+                  </div>
+                )}
+                {project.demoType === 'mobile' && (
+                  <div className="flex items-center gap-2 px-3 py-1 bg-green-100 text-green-700 rounded-full">
+                    <Smartphone size={16} />
+                    <span className="font-medium">Aplicación Móvil</span>
+                  </div>
+                )}
+                {project.demoType === 'design' && (
+                  <div className="flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-700 rounded-full">
+                    <span className="font-medium">Diseño UI/UX</span>
+                  </div>
+                )}
+              </div>
+              
+              {/* Preview principal */}
+              <div className={`relative rounded-xl overflow-hidden shadow-lg ${
+                project.demoType === 'mobile' ? 'max-w-sm mx-auto' : ''
+              }`}>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-auto object-cover"
+                />
+                
+                {/* Overlay con información */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                  <h4 className="text-white text-xl font-bold mb-2">Vista Previa del Proyecto</h4>
+                  <p className="text-white/90 text-sm">
+                    {project.demoType === 'web' && 'Aplicación web responsiva con interfaz moderna'}
+                    {project.demoType === 'mobile' && 'Aplicación móvil nativa con experiencia optimizada'}
+                    {project.demoType === 'design' && 'Diseño de interfaz con prototipado interactivo'}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Tecnologías */}
+            <div className="mb-6">
+              <h4 className={`text-lg font-semibold mb-3 ${darkMode ? 'text-gray-200' : 'text-gray-800'}`}>
+                Tecnologías Utilizadas
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech: string) => (
+                  <span
+                    key={tech}
+                    className={`px-3 py-1 text-sm font-medium rounded-full ${
+                      darkMode 
+                        ? 'bg-gray-700 text-gray-300' 
+                        : 'bg-gray-100 text-gray-700'
+                    }`}
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Acciones */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href={project.liveUrl}
+                className="flex-1 flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-lg font-medium hover:scale-105 transform transition-all duration-200"
+              >
+                <ExternalLink size={20} />
+                <span>Ver Demo en Vivo</span>
+              </a>
+              
+              <a
+                href={project.githubUrl}
+                className={`flex-1 flex items-center justify-center space-x-2 px-6 py-3 border-2 rounded-lg font-medium hover:scale-105 transform transition-all duration-200 ${
+                  darkMode
+                    ? 'border-gray-600 text-gray-300 hover:bg-gray-800'
+                    : 'border-gray-300 text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                <Github size={20} />
+                <span>Ver Código Fuente</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <section id="proyectos" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -187,6 +338,9 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
           </a>
         </div>
       </div>
+      
+      {/* Modal de vista previa */}
+      {selectedProject && <DemoPreview project={selectedProject} />}
     </section>
   );
 };

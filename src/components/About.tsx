@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Coffee, Music, Gamepad2 } from 'lucide-react';
+import { Code, Coffee, Music, Gamepad2, Database, Brush } from 'lucide-react';
 
 interface AboutProps {
   darkMode: boolean;
@@ -8,6 +8,8 @@ interface AboutProps {
 const About: React.FC<AboutProps> = ({ darkMode }) => {
   const interests = [
     { icon: Code, label: 'Desarrollo Web', color: 'text-blue-900' },
+    { icon: Database, label: 'Bases de Datos', color: 'text-orange-600' },
+    { icon: Brush, label: 'Diseño de Software', color: 'text-purple-600' },
     { icon: Coffee, label: 'Café', color: 'text-amber-600' },
     { icon: Music, label: 'Música', color: 'text-green-500' },
     { icon: Gamepad2, label: 'Testing QA', color: 'text-blue-700' }
@@ -61,9 +63,15 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                 </p>
                 
                 <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
-                  Comencé mi viaje en el desarrollo y testing hace 2 años cuando descubrí que 
+                  Comencé mi viaje en el desarrollo y testing hace 3 años cuando descubrí que 
                   podía convertir ideas en realidad usando código y asegurar que funcionen perfectamente. 
-                  Desde entonces, no he parado de aprender sobre desarrollo y metodologías de testing.
+                  Desde entonces, no he parado de aprender sobre desarrollo, metodologías de testing, 
+                  bases de datos y diseño de software.
+                </p>
+                
+                <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
+                  Además de mi experiencia en desarrollo y testing, he tenido la oportunidad de liderar 
+                  proyectos de software, coordinando equipos y asegurando la entrega de soluciones de alta calidad.
                 </p>
                 
                 <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
@@ -79,7 +87,7 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
             }`}>
               <h4 className="text-xl font-bold mb-4">Mis intereses 💫</h4>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                 {interests.map(({ icon: Icon, label, color }) => (
                   <div
                     key={label}
