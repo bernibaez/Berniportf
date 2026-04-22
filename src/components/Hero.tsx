@@ -55,7 +55,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
           <p className={`text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed ${
             darkMode ? 'text-gray-300' : 'text-gray-600'
           }`}>
-            Desarrollador web y QA junior apasionado por crear experiencias digitales 
+            Desarrollador full stack con experiencia en qa y devops apasionado por crear experiencias digitales 
             increíbles y garantizar la calidad del software. Especializado en React, JavaScript, testing y aseguramiento de calidad.
           </p>
 

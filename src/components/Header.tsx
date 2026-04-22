@@ -59,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({
           {/* Right side buttons */}
           <div className="hidden md:flex items-center space-x-3">
             <a
-              href="#cv"
+              href="file:///C:/Users/Owner/Downloads/Berny%20B%C3%A1ez%20cv.pdf"
               className="bg-gradient-to-r from-blue-900 to-blue-700 text-white px-4 py-2 rounded-full font-medium hover:scale-105 transform transition-all duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl"
             >
               <Rocket size={16} />
@@ -115,14 +115,14 @@ const Header: React.FC<HeaderProps> = ({
                       ? 'text-gray-300 hover:text-white hover:bg-gray-700'
                       : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
                   }`}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={toggleMobileMenu}
                 >
                   {item.label}
                 </a>
               ))}
               
               <a
-                href="#cv"
+                href="file:///C:/Users/Owner/Downloads/Berny%20Báez%20cv.pdf"
                 className="block bg-gradient-to-r from-blue-900 to-blue-700 text-white px-3 py-2 rounded-md font-medium mt-4 text-center"
               >
                 <Rocket size={16} className="inline mr-2" />

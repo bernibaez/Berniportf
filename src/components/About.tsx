@@ -12,7 +12,7 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
     { icon: Brush, label: 'Diseño de Software', color: 'text-purple-600' },
     { icon: Coffee, label: 'Café', color: 'text-amber-600' },
     { icon: Music, label: 'Música', color: 'text-green-500' },
-    { icon: Gamepad2, label: 'Testing QA', color: 'text-blue-700' }
+    { icon: Gamepad2, label: 'DevOps', color: 'text-blue-700' }
   ];
 
   return (
@@ -57,25 +57,24 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
               
               <div className="space-y-4 text-lg leading-relaxed">
                 <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
-                  Soy un desarrollador web y QA junior apasionado por crear 
+                  Soy un Full Stack Developer apasionado por crear 
                   experiencias digitales que no solo funcionen perfectamente, sino que también 
-                  sorprendan y diviertan a los usuarios. Me especializo tanto en el desarrollo como en garantizar la calidad del software.
+                  sorprendan y diviertan a los usuarios. Me especializo en desarrollo con experiencia en QA y DevOps.
                 </p>
                 
                 <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
-                  Comencé mi viaje en el desarrollo y testing hace 3 años cuando descubrí que 
-                  podía convertir ideas en realidad usando código y asegurar que funcionen perfectamente. 
-                  Desde entonces, no he parado de aprender sobre desarrollo, metodologías de testing, 
-                  bases de datos y diseño de software.
+                  Comencé mi viaje en el desarrollo hace 3 años cuando descubrí que 
+                  podía convertir ideas en realidad usando código. Desde entonces, no he parado de aprender sobre desarrollo, 
+                  metodologías de testing, DevOps, bases de datos y diseño de software.
                 </p>
                 
                 <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
-                  Además de mi experiencia en desarrollo y testing, he tenido la oportunidad de liderar 
+                  Además de mi experiencia en desarrollo, QA y DevOps, he tenido la oportunidad de liderar 
                   proyectos de software, coordinando equipos y asegurando la entrega de soluciones de alta calidad.
                 </p>
                 
                 <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
-                  Cuando no estoy programando o probando aplicaciones, me encontrarás jugando videojuegos, 
+                  Cuando no estoy programando, configurando pipelines de CI/CD o optimizando sistemas, me encontrarás jugando videojuegos, 
                   escuchando música o explorando nuevos lugares con mi cámara 📸
                 </p>
               </div>
