@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { ExternalLink, Github, X, Monitor, Smartphone } from 'lucide-react';
+import { useTranslation } from '../hooks/useTranslation';
 
 interface ProjectsProps {
   darkMode: boolean;
 }
 
 const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
+  const t = useTranslation();
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
 
   const projects = [
@@ -137,7 +139,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
             className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-lg font-medium hover:scale-105 transform transition-all duration-200 text-sm"
           >
             <ExternalLink size={16} />
-            <span>Ver Demo</span>
+            <span>{t.projects.verDemo}</span>
           </a>
           
           <a
@@ -149,7 +151,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
             }`}
           >
             <Github size={16} />
-            <span>Código</span>
+            <span>{t.projects.codigo}</span>
           </a>
         </div>
       </div>
@@ -262,7 +264,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
                 className="flex-1 flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-lg font-medium hover:scale-105 transform transition-all duration-200"
               >
                 <ExternalLink size={20} />
-                <span>Ver Demo en Vivo</span>
+                <span>{t.projects.verDemoEnVivo}</span>
               </a>
               
               <a
@@ -274,7 +276,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
                 }`}
               >
                 <Github size={20} />
-                <span>Ver Código Fuente</span>
+                <span>{t.projects.verCodigo}</span>
               </a>
             </div>
           </div>
@@ -288,10 +290,10 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            Mis Proyectos 🚀
+            {t.projects.title}
           </h2>
           <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            Una selección de mis trabajos más recientes
+            {t.projects.subtitle}
           </p>
         </div>
 
@@ -299,7 +301,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         <div className="mb-16">
           <h3 className="text-2xl font-bold mb-8 flex items-center">
             <span className="mr-2">⭐</span>
-            Proyectos Destacados
+            {t.projects.featured}
           </h3>
           
           <div className="grid lg:grid-cols-2 gap-8">
@@ -313,7 +315,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         <div>
           <h3 className="text-2xl font-bold mb-8 flex items-center">
             <span className="mr-2">💻</span>
-            Otros Proyectos
+            {t.projects.others}
           </h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -326,7 +328,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         {/* Call to action */}
         <div className="text-center mt-16">
           <p className={`text-lg mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            ¿Te gustaron mis proyectos? ¡Hay muchos más en mi GitHub!
+            {t.projects.proyectosGitHub}
           </p>
           
           <a
@@ -334,7 +336,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
             className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-900 to-blue-700 text-white px-8 py-3 rounded-full font-medium hover:scale-105 transform transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             <Github size={20} />
-            <span>Ver todos en GitHub</span>
+            <span>{t.projects.verTodosGitHub}</span>
           </a>
         </div>
       </div>

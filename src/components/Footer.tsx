@@ -1,11 +1,13 @@
 import React from 'react';
 import { Heart, Code, Coffee } from 'lucide-react';
+import { useTranslation } from '../hooks/useTranslation';
 
 interface FooterProps {
   darkMode: boolean;
 }
 
 const Footer: React.FC<FooterProps> = ({ darkMode }) => {
+  const t = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -32,11 +34,11 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             <h4 className="text-lg font-semibold mb-4">Enlaces Rápidos</h4>
             <ul className="space-y-2">
               {[
-                { href: '#inicio', label: 'Inicio' },
-                { href: '#sobre-mi', label: 'Sobre mí' },
-                { href: '#proyectos', label: 'Proyectos' },
-                { href: '#habilidades', label: 'Habilidades' },
-                { href: '#contacto', label: 'Contacto' }
+                { href: '#inicio', label: t.header.nav.inicio },
+                { href: '#sobre-mi', label: t.header.nav.sobreMi },
+                { href: '#proyectos', label: t.header.nav.proyectos },
+                { href: '#habilidades', label: t.header.nav.habilidades },
+                { href: '#contacto', label: t.header.nav.contacto }
               ].map((link) => (
                 <li key={link.href}>
                   <a
@@ -75,7 +77,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             {/* Copyright */}
             <div className="flex items-center space-x-2 text-sm">
               <span className={darkMode ? 'text-gray-400' : 'text-gray-600'}>
-                © {currentYear} Berny Baez. Hecho con
+                © {currentYear} Berny Baez. {t.footer.hechoCon}
               </span>
               <Heart size={16} className="text-red-500 animate-pulse" />
               <span className={darkMode ? 'text-gray-400' : 'text-gray-600'}>

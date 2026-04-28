@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Mail, ChevronDown } from 'lucide-react';
+import { useTranslation } from '../hooks/useTranslation';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface HeroProps {
   darkMode: boolean;
 }
 
 const Hero: React.FC<HeroProps> = ({ darkMode }) => {
+  const t = useTranslation();
+  const { language } = useLanguage();
   const [typewriterText, setTypewriterText] = useState('');
-  const fullText = 'Construyo ideas con código...';
+  const fullText = t.hero.typewriter;
   
   useEffect(() => {
     let index = 0;
+    setTypewriterText(''); // Reset text when language changes
     const timer = setInterval(() => {
       if (index <= fullText.length) {
         setTypewriterText(fullText.slice(0, index));
@@ -21,7 +26,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
     }, 100);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [fullText]);
 
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
@@ -30,14 +35,14 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
           {/* Saludo principal */}
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold">
-              <span className="block">¡Hola, soy</span>
+              <span className="block">{t.hero.greeting}</span>
               <span className="block bg-gradient-to-r from-blue-900 via-blue-700 to-blue-600 bg-clip-text text-transparent">
                 Berny Baez
               </span>
             </h1>
             
             <p className="text-xl sm:text-2xl lg:text-3xl font-medium">
-              y creo código de calidad! 🧙‍♂️💻🔍
+              {t.hero.subtitle}
             </p>
           </div>
 
@@ -55,8 +60,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
           <p className={`text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed ${
             darkMode ? 'text-gray-300' : 'text-gray-600'
           }`}>
-            Desarrollador full stack con experiencia en qa y devops apasionado por crear experiencias digitales 
-            increíbles y garantizar la calidad del software. Especializado en React, JavaScript, testing y aseguramiento de calidad.
+            {t.hero.description}
           </p>
 
           {/* Botones de acción */}
@@ -65,7 +69,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
               href="#proyectos"
               className="bg-gradient-to-r from-blue-900 to-blue-700 text-white px-8 py-3 rounded-full font-medium hover:scale-105 transform transition-all duration-200 shadow-lg hover:shadow-xl"
             >
-              Ver mis proyectos ✨
+              {t.hero.viewProjects} ✨
             </a>
             
             <a
@@ -76,7 +80,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                   : 'border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white'
               }`}
             >
-              Contáctame 📞
+              {t.hero.contactMe}
             </a>
           </div>
 

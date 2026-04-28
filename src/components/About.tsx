@@ -1,18 +1,21 @@
 import React from 'react';
 import { Code, Coffee, Music, Gamepad2, Database, Brush } from 'lucide-react';
+import { useTranslation } from '../hooks/useTranslation';
 
 interface AboutProps {
   darkMode: boolean;
 }
 
 const About: React.FC<AboutProps> = ({ darkMode }) => {
+  const t = useTranslation();
+  
   const interests = [
-    { icon: Code, label: 'Desarrollo Web', color: 'text-blue-900' },
-    { icon: Database, label: 'Bases de Datos', color: 'text-orange-600' },
-    { icon: Brush, label: 'Diseño de Software', color: 'text-purple-600' },
-    { icon: Coffee, label: 'Café', color: 'text-amber-600' },
-    { icon: Music, label: 'Música', color: 'text-green-500' },
-    { icon: Gamepad2, label: 'DevOps', color: 'text-blue-700' }
+    { icon: Code, label: t.about.interestsList.desarrolloWeb, color: 'text-blue-900' },
+    { icon: Database, label: t.about.interestsList.basesDatos, color: 'text-orange-600' },
+    { icon: Brush, label: t.about.interestsList.disenoSoftware, color: 'text-purple-600' },
+    { icon: Coffee, label: t.about.interestsList.cafe, color: 'text-amber-600' },
+    { icon: Music, label: t.about.interestsList.musica, color: 'text-green-500' },
+    { icon: Gamepad2, label: t.about.interestsList.devops, color: 'text-blue-700' }
   ];
 
   return (
@@ -20,10 +23,10 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            Sobre mí 👨‍💻
+            {t.about.title}
           </h2>
           <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            Conoce un poco más sobre quién soy
+            {t.about.subtitle}
           </p>
         </div>
 
@@ -52,30 +55,24 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
               darkMode ? 'bg-gray-800' : 'bg-white'
             }`}>
               <h3 className="text-2xl font-bold mb-4 text-purple-600">
-                ¡Hola! Soy Berny 🚀
+                {t.about.hello}
               </h3>
               
               <div className="space-y-4 text-lg leading-relaxed">
                 <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
-                  Soy un Full Stack Developer apasionado por crear 
-                  experiencias digitales que no solo funcionen perfectamente, sino que también 
-                  sorprendan y diviertan a los usuarios. Me especializo en desarrollo con experiencia en QA y DevOps.
+                  {t.about.description1}
                 </p>
                 
                 <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
-                  Comencé mi viaje en el desarrollo hace 3 años cuando descubrí que 
-                  podía convertir ideas en realidad usando código. Desde entonces, no he parado de aprender sobre desarrollo, 
-                  metodologías de testing, DevOps, bases de datos y diseño de software.
+                  {t.about.description2}
                 </p>
                 
                 <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
-                  Además de mi experiencia en desarrollo, QA y DevOps, he tenido la oportunidad de liderar 
-                  proyectos de software, coordinando equipos y asegurando la entrega de soluciones de alta calidad.
+                  {t.about.description3}
                 </p>
                 
                 <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
-                  Cuando no estoy programando, configurando pipelines de CI/CD o optimizando sistemas, me encontrarás jugando videojuegos, 
-                  escuchando música o explorando nuevos lugares con mi cámara 📸
+                  {t.about.description4}
                 </p>
               </div>
             </div>
@@ -84,7 +81,7 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
             <div className={`p-6 rounded-2xl shadow-lg ${
               darkMode ? 'bg-gray-800' : 'bg-white'
             }`}>
-              <h4 className="text-xl font-bold mb-4">Mis intereses 💫</h4>
+              <h4 className="text-xl font-bold mb-4">{t.about.interests}</h4>
               
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                 {interests.map(({ icon: Icon, label, color }) => (

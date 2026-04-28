@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from '../hooks/useTranslation';
 
 interface SkillsProps {
   darkMode: boolean;
 }
 
 const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
+  const t = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -81,10 +83,10 @@ const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            Mis Habilidades 🛠️
+            {t.skills.title}
           </h2>
           <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            Las tecnologías que domino y con las que trabajo
+            {t.skills.subtitle}
           </p>
         </div>
 
@@ -93,7 +95,7 @@ const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
           <div className={`p-8 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
             <h3 className="text-2xl font-bold mb-8 flex items-center">
               <span className="mr-3 text-2xl">💻</span>
-              Habilidades Técnicas
+              {t.skills.tecnicas}
             </h3>
             
             <div className="space-y-2">
@@ -109,7 +111,7 @@ const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
             <div className={`p-8 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
               <h3 className="text-2xl font-bold mb-6 flex items-center">
                 <span className="mr-3 text-2xl">🔧</span>
-                Herramientas
+                {t.skills.herramientas}
               </h3>
               
               <div className="grid grid-cols-2 gap-4">
@@ -131,17 +133,17 @@ const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
             <div className={`p-8 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
               <h3 className="text-2xl font-bold mb-6 flex items-center">
                 <span className="mr-3 text-2xl">🧠</span>
-                Soft Skills
+                {t.skills.softSkills}
               </h3>
               
               <div className="grid grid-cols-1 gap-4">
                 {[
-                  { skill: 'Trabajo en equipo', icon: '🤝' },
-                  { skill: 'Resolución de problemas', icon: '🧩' },
-                  { skill: 'Aprendizaje continuo', icon: '📚' },
-                  { skill: 'Comunicación efectiva', icon: '💬' },
-                  { skill: 'Gestión del tiempo', icon: '⏰' },
-                  { skill: 'Creatividad', icon: '💡' }
+                  { skill: t.skills.softSkillsList.trabajoEquipo, icon: '🤝' },
+                  { skill: t.skills.softSkillsList.resolucionProblemas, icon: '🧩' },
+                  { skill: t.skills.softSkillsList.aprendizajeContinuo, icon: '📚' },
+                  { skill: t.skills.softSkillsList.comunicacionEfectiva, icon: '💬' },
+                  { skill: t.skills.softSkillsList.gestionTiempo, icon: '⏰' },
+                  { skill: t.skills.softSkillsList.creatividad, icon: '💡' }
                 ].map((item) => (
                   <div
                     key={item.skill}
@@ -162,11 +164,11 @@ const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
         <div className="mt-16 text-center">
           <div className={`p-8 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
             <h3 className="text-2xl font-bold mb-6">
-              En constante aprendizaje 🚀
+              {t.skills.aprendizaje}
             </h3>
             
             <p className={`text-lg mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              Actualmente estudiando y mejorando en:
+              {t.skills.estudiando}:
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">

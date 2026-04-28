@@ -1,29 +1,32 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Github, MessageCircle } from 'lucide-react';
+import { useTranslation } from '../hooks/useTranslation';
 
 interface ContactProps {
   darkMode: boolean;
 }
 
 const Contact: React.FC<ContactProps> = ({ darkMode }) => {
+  const t = useTranslation();
+  
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
+      label: t.contact.info.email,
       value: 'berni2dox@gmail.com',
       href: 'mailto:berni2dox@gmail.com',
       color: 'text-red-500'
     },
     {
       icon: Phone,
-      label: 'Teléfono',
+      label: t.contact.info.telefono,
       value: '829-987-8357',
       href: 'tel:8299878357',
       color: 'text-green-500'
     },
     {
       icon: MapPin,
-      label: 'Ubicación',
+      label: t.contact.info.ubicacion,
       value: 'República Dominicana',
       href: '#',
       color: 'text-blue-500'
@@ -50,10 +53,10 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            ¡Hablemos! 💬
+            {t.contact.title}
           </h2>
           <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            ¿Tienes un proyecto en mente? ¡Me encantaría colaborar contigo!
+            {t.contact.subtitle}
           </p>
         </div>
 
@@ -63,7 +66,7 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
             <div className={`p-8 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
               <h3 className="text-2xl font-bold mb-6 flex items-center">
                 <span className="mr-3 text-2xl">📞</span>
-                Información de Contacto
+                {t.contact.info.email} / {t.contact.info.telefono}
               </h3>
               
               <div className="space-y-4">
