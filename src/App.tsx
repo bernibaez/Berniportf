@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -29,28 +30,30 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      darkMode 
-        ? 'bg-black text-white' 
-        : 'bg-gradient-to-br from-blue-50 via-slate-50 to-white'
-    }`}>
-      <Header 
-        darkMode={darkMode}
-        toggleDarkMode={toggleDarkMode}
-        mobileMenuOpen={mobileMenuOpen}
-        toggleMobileMenu={toggleMobileMenu}
-      />
-      
-      <main>
-        <Hero darkMode={darkMode} />
-        <About darkMode={darkMode} />
-        <Projects darkMode={darkMode} />
-        <Skills darkMode={darkMode} />
-        <Contact darkMode={darkMode} />
-      </main>
-      
-      <Footer darkMode={darkMode} />
-    </div>
+    <LanguageProvider>
+      <div className={`min-h-screen transition-colors duration-300 ${
+        darkMode 
+          ? 'bg-black text-white' 
+          : 'bg-gradient-to-br from-blue-50 via-slate-50 to-white'
+      }`}>
+        <Header 
+          darkMode={darkMode}
+          toggleDarkMode={toggleDarkMode}
+          mobileMenuOpen={mobileMenuOpen}
+          toggleMobileMenu={toggleMobileMenu}
+        />
+        
+        <main>
+          <Hero darkMode={darkMode} />
+          <About darkMode={darkMode} />
+          <Projects darkMode={darkMode} />
+          <Skills darkMode={darkMode} />
+          <Contact darkMode={darkMode} />
+        </main>
+        
+        <Footer darkMode={darkMode} />
+      </div>
+    </LanguageProvider>
   );
 }
 

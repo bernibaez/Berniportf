@@ -18,6 +18,7 @@ const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
     { name: 'Supabase', level: 90, icon: '🟢', color: 'from-green-500 to-green-700' },
     { name: 'MongoDB', level: 90, icon: '🍃', color: 'from-green-600 to-green-800' },
     { name: 'Figma', level: 90, icon: '🎨', color: 'from-purple-500 to-purple-700' },
+    { name: 'Adobe XD', level: 85, icon: '🖌️', color: 'from-purple-600 to-purple-800' },
     { name: 'Testing QA', level: 75, icon: '🔍', color: 'from-blue-500 to-blue-700' },
     { name: 'Git & GitHub', level: 80, icon: '🔀', color: 'from-slate-600 to-slate-800' },
     { name: 'Responsive Design', level: 85, icon: '📱', color: 'from-blue-600 to-blue-800' }

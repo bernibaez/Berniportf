@@ -1,5 +1,7 @@
 import React from 'react';
-import { Moon, Sun, Menu, X, Download, Rocket } from 'lucide-react';
+import { Moon, Sun, Menu, X, Download, Rocket, Languages } from 'lucide-react';
+import { useTranslation } from '../hooks/useTranslation';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface HeaderProps {
   darkMode: boolean;
@@ -14,12 +16,15 @@ const Header: React.FC<HeaderProps> = ({
   mobileMenuOpen, 
   toggleMobileMenu 
 }) => {
+  const t = useTranslation();
+  const { language, toggleLanguage } = useLanguage();
+  
   const navItems = [
-    { href: '#inicio', label: 'Inicio' },
-    { href: '#sobre-mi', label: 'Sobre mí' },
-    { href: '#proyectos', label: 'Proyectos' },
-    { href: '#habilidades', label: 'Habilidades' },
-    { href: '#contacto', label: 'Contacto' }
+    { href: '#inicio', label: t.header.nav.inicio },
+    { href: '#sobre-mi', label: t.header.nav.sobreMi },
+    { href: '#proyectos', label: t.header.nav.proyectos },
+    { href: '#habilidades', label: t.header.nav.habilidades },
+    { href: '#contacto', label: t.header.nav.contacto }
   ];
 
   return (
@@ -33,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({
           {/* Logo */}
           <div className="flex-shrink-0">
             <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Berny Baez 🚀
+              {t.header.logo}
             </span>
           </div>
 
@@ -63,8 +68,20 @@ const Header: React.FC<HeaderProps> = ({
               className="bg-gradient-to-r from-blue-900 to-blue-700 text-white px-4 py-2 rounded-full font-medium hover:scale-105 transform transition-all duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl"
             >
               <Rocket size={16} />
-              <span>Ver CV</span>
+              <span>{t.header.verCV}</span>
             </a>
+            
+            <button
+              onClick={toggleLanguage}
+              className={`p-2 rounded-full transition-all duration-300 hover:scale-110 transform ${
+                darkMode
+                  ? 'bg-blue-400 text-white hover:bg-blue-300'
+                  : 'bg-blue-600 text-white hover:bg-blue-700'
+              }`}
+              title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+            >
+              <Languages size={20} />
+            </button>
             
             <button
               onClick={toggleDarkMode}
@@ -80,6 +97,18 @@ const Header: React.FC<HeaderProps> = ({
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
+            <button
+              onClick={toggleLanguage}
+              className={`p-2 rounded-full transition-all duration-300 ${
+                darkMode
+                  ? 'bg-blue-400 text-white'
+                  : 'bg-blue-600 text-white'
+              }`}
+              title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+            >
+              <Languages size={18} />
+            </button>
+            
             <button
               onClick={toggleDarkMode}
               className={`p-2 rounded-full transition-all duration-300 ${
@@ -126,7 +155,7 @@ const Header: React.FC<HeaderProps> = ({
                 className="block bg-gradient-to-r from-blue-900 to-blue-700 text-white px-3 py-2 rounded-md font-medium mt-4 text-center"
               >
                 <Rocket size={16} className="inline mr-2" />
-                Ver CV
+                {t.header.verCV}
               </a>
             </div>
           </div>
