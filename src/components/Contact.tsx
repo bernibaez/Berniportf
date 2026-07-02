@@ -65,7 +65,6 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
           <div className="space-y-8">
             <div className={`p-8 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
               <h3 className="text-2xl font-bold mb-6 flex items-center">
-                <span className="mr-3 text-2xl">📞</span>
                 {t.contact.info.email} / {t.contact.info.telefono}
               </h3>
               
@@ -93,7 +92,6 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
             {/* Redes sociales */}
             <div className={`p-8 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
               <h3 className="text-2xl font-bold mb-6 flex items-center">
-                <span className="mr-3 text-2xl">🌐</span>
                 Sígueme en
               </h3>
               
@@ -118,7 +116,6 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
             {/* Disponibilidad */}
             <div className={`p-8 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
               <h3 className="text-2xl font-bold mb-4 flex items-center">
-                <span className="mr-3 text-2xl">⏰</span>
                 Disponibilidad
               </h3>
               
@@ -196,7 +193,7 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
         <div className="text-center mt-16">
           <div className={`p-8 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
             <h3 className="text-2xl font-bold mb-4">
-              ¿Listo para crear algo increíble juntos? 🚀
+              ¿Listo para crear algo increíble juntos?
             </h3>
             
             <p className={`text-lg mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>

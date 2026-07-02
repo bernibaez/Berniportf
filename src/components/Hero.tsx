@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Github, Mail, ChevronDown } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
-import { useLanguage } from '../contexts/LanguageContext';
 
 interface HeroProps {
   darkMode: boolean;
@@ -9,24 +8,6 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ darkMode }) => {
   const t = useTranslation();
-  const { language } = useLanguage();
-  const [typewriterText, setTypewriterText] = useState('');
-  const fullText = t.hero.typewriter;
-  
-  useEffect(() => {
-    let index = 0;
-    setTypewriterText(''); // Reset text when language changes
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setTypewriterText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 100);
-
-    return () => clearInterval(timer);
-  }, [fullText]);
 
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
@@ -46,15 +27,6 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
             </p>
           </div>
 
-          {/* Texto mecanografiado */}
-          <div className="h-16 flex items-center justify-center">
-            <p className={`text-lg sm:text-xl font-mono ${
-              darkMode ? 'text-green-400' : 'text-green-600'
-            }`}>
-              {typewriterText}
-              <span className="animate-pulse">|</span>
-            </p>
-          </div>
 
           {/* Descripción */}
           <p className={`text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed ${
@@ -69,7 +41,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
               href="#proyectos"
               className="bg-gradient-to-r from-blue-900 to-blue-700 text-white px-8 py-3 rounded-full font-medium hover:scale-105 transform transition-all duration-200 shadow-lg hover:shadow-xl"
             >
-              {t.hero.viewProjects} ✨
+              {t.hero.viewProjects}
             </a>
             
             <a

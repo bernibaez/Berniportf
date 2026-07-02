@@ -13,7 +13,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
   const projects = [
     {
       id: 1,
-      title: 'HealthTrack 🏥',
+      title: 'HealthTrack',
       description: 'Aplicación de seguimiento médico con gestión de pacientes, citas y historiales clínicos.',
       image: '/Healthtrack.png',
       demoType: 'web',
@@ -46,13 +46,13 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
     },
     {
       id: 4,
-      title: 'Sistema de Restaurantes 🍽️',
-      description: 'Sistema completo de gestión para restaurantes con pedidos, inventario y control de mesas.',
-      image: 'https://images.pexels.com/photos/941864/pexels-photo-941864.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: 'Mi Unad',
+      description: 'Portal móvil y web para estudiantes universitarios con gestión académica, recursos educativos y servicios estudiantiles.',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
       demoType: 'web',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-      liveUrl: '#',
-      githubUrl: 'https://github.com/bernibaez/orderly-eats.git',
+      technologies: ['React', 'Figma', 'UI/UX Design', 'Mobile Development'],
+      liveUrl: 'https://lead-tag-30645862.figma.site/',
+      githubUrl: '#',
       featured: true
     },
     ];
@@ -300,7 +300,6 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         {/* Proyectos destacados */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold mb-8 flex items-center">
-            <span className="mr-2">⭐</span>
             {t.projects.featured}
           </h3>
           
@@ -314,7 +313,6 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         {/* Otros proyectos */}
         <div>
           <h3 className="text-2xl font-bold mb-8 flex items-center">
-            <span className="mr-2">💻</span>
             {t.projects.others}
           </h3>
           

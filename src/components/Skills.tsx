@@ -94,8 +94,7 @@ const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
           {/* Habilidades técnicas */}
           <div className={`p-8 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
             <h3 className="text-2xl font-bold mb-8 flex items-center">
-              <span className="mr-3 text-2xl">💻</span>
-              {t.skills.tecnicas}
+                {t.skills.tecnicas}
             </h3>
             
             <div className="space-y-2">
@@ -110,8 +109,7 @@ const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
             {/* Herramientas */}
             <div className={`p-8 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
               <h3 className="text-2xl font-bold mb-6 flex items-center">
-                <span className="mr-3 text-2xl">🔧</span>
-                {t.skills.herramientas}
+                    {t.skills.herramientas}
               </h3>
               
               <div className="grid grid-cols-2 gap-4">
@@ -132,8 +130,7 @@ const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
             {/* Soft Skills */}
             <div className={`p-8 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
               <h3 className="text-2xl font-bold mb-6 flex items-center">
-                <span className="mr-3 text-2xl">🧠</span>
-                {t.skills.softSkills}
+                    {t.skills.softSkills}
               </h3>
               
               <div className="grid grid-cols-1 gap-4">
@@ -164,7 +161,7 @@ const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
         <div className="mt-16 text-center">
           <div className={`p-8 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
             <h3 className="text-2xl font-bold mb-6">
-              {t.skills.aprendizaje}
+              {t.skills.aprendizaje.replace(' 🚀', '')}
             </h3>
             
             <p className={`text-lg mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>

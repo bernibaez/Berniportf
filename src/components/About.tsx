@@ -35,17 +35,13 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <div className={`w-80 h-80 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300 ${
-                darkMode ? 'bg-gray-800' : 'bg-gradient-to-br from-purple-400 to-pink-400'
+                darkMode ? 'bg-gray-800' : 'bg-gradient-to-br from-blue-400 to-blue-600'
               }`}>
                 {/* Placeholder para foto - puedes reemplazar con una imagen real */}
                 <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-8xl">👨‍💻</div>
+                  <div className="text-6xl font-bold text-white">BB</div>
                 </div>
               </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-yellow-400 rounded-full animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-green-400 rounded-full animate-pulse delay-1000"></div>
             </div>
           </div>
 

@@ -1,7 +1,7 @@
 export const en = {
   // Header
   header: {
-    logo: "Berny Baez 🚀",
+    logo: "Berny Baez",
     nav: {
       inicio: "Home",
       sobreMi: "About Me",
@@ -17,23 +17,23 @@ export const en = {
   // Hero
   hero: {
     greeting: "Hello, I'm",
-    subtitle: "and I create quality code! 🧙‍♂️💻🔍",
+    subtitle: "and I create quality code!",
     typewriter: "Building ideas with code...",
     description: "Full Stack Developer with QA and DevOps experience passionate about creating incredible digital experiences and ensuring software quality. Specialized in React, JavaScript, testing and quality assurance.",
-    viewProjects: "View my projects ✨",
-    contactMe: "Contact me 📞"
+    viewProjects: "View my projects",
+    contactMe: "Contact me"
   },
 
   // About
   about: {
-    title: "About Me 👨‍💻",
+    title: "About Me",
     subtitle: "Get to know a little more about who I am",
-    hello: "Hi! I'm Berny 🚀",
+    hello: "Hi! I'm Berny",
     description1: "I'm a Full Stack Developer passionate about creating digital experiences that not only work perfectly, but also surprise and delight users. I specialize in development with QA and DevOps experience.",
     description2: "I started my development journey 3 years ago when I discovered I could turn ideas into reality using code. Since then, I haven't stopped learning about development, testing methodologies, DevOps, databases and software design.",
     description3: "In addition to my experience in development, QA and DevOps, I've had the opportunity to lead software projects, coordinating teams and ensuring the delivery of high-quality solutions.",
     description4: "When I'm not programming, setting up CI/CD pipelines or optimizing systems, you'll find me playing video games, listening to music or exploring new places with my camera 📸",
-    interests: "My interests 💫",
+    interests: "My interests",
     interestsList: {
       desarrolloWeb: "Web Development",
       basesDatos: "Databases",
@@ -46,7 +46,7 @@ export const en = {
 
   // Projects
   projects: {
-    title: "My Projects 🚀",
+    title: "My Projects",
     subtitle: "A selection of my recent work",
     featured: "Featured Projects",
     others: "Other Projects",
@@ -69,12 +69,12 @@ export const en = {
 
   // Skills
   skills: {
-    title: "My Skills 🛠️",
+    title: "My Skills",
     subtitle: "The technologies I master and work with",
     tecnicas: "Technical Skills",
     herramientas: "Tools",
     softSkills: "Soft Skills",
-    aprendizaje: "Constantly learning 🚀",
+    aprendizaje: "Constantly learning",
     estudiando: "Currently studying and improving in:",
     softSkillsList: {
       trabajoEquipo: "Teamwork",
